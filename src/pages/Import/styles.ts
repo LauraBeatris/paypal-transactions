@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const Container = styled.div`
   width: 100%;
   max-width: 736px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 0 20px 40px;
 `;
 
 export const Title = styled.h1`
@@ -20,6 +21,10 @@ export const ImportFileContainer = styled.section`
   margin-top: 40px;
   border-radius: 5px;
   padding: 64px;
+
+  ${media.lessThan('medium')`
+    padding: 32px;
+  `}
 `;
 
 export const Footer = styled.section`
@@ -27,6 +32,14 @@ export const Footer = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  ${media.lessThan('medium')`
+    flex-direction: column;
+
+    button {
+      margin-top: 26px;
+    }
+  `}
 
   p {
     display: flex;

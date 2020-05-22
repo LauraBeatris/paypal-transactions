@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FiUpload } from 'react-icons/fi';
 import { formatRelative } from 'date-fns';
 
@@ -68,10 +69,12 @@ const Dashboard: React.FC = () => {
           </span>
         </Title>
         <Balance balance={{ total: 32432 }} />
-        <Button theme="dark">
-          <FiUpload color="#fff" />
-          Import
-        </Button>
+        <Link to="/import">
+          <Button theme="dark">
+            <FiUpload color="#fff" />
+            Import
+          </Button>
+        </Link>
         <CardContainer>
           <Card>
             <header>

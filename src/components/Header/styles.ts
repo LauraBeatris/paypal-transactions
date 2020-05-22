@@ -1,34 +1,53 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
-interface ContainerProps {
-  size?: 'small' | 'large';
-}
+export const Container = styled.div`
+  padding: 30px 15px;
+  width: 100%;
 
-export const Container = styled.div<ContainerProps>`
-  background: #5636d3;
-  padding: 30px 0;
+  --list-space: 20px;
+
+  img {
+    width: 32px;
+  }
 
   header {
-    width: 1120px;
+    width: 100%;
+    max-width: 1120px;
     margin: 0 auto;
-    padding: ${({ size }) => (size === 'small' ? '0 20px ' : '0 20px 150px')};
+
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
+
+    ${media.lessThan('medium')`
+      flex-direction: column;
+    `}
 
     nav {
-      a {
-        color: #fff;
-        text-decoration: none;
-        font-size: 16px;
-        transition: opacity 0.2s;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        list-style: none;
+        margin-left: var(--list-space);
 
-        & + a {
-          margin-left: 32px;
-        }
+        ${media.lessThan('medium')`
+            margin: 10px 0;
+            margin-left: 0;
+            text-align: center;
+            justify-content: center;
+        `}
 
-        &:hover {
-          opacity: 0.6;
+        li {
+          & + li {
+            margin-left: var(--list-space);
+          }
+
+          a {
+            text-decoration: none;
+            color: #555555;
+          }
         }
       }
     }

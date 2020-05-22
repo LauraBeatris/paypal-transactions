@@ -8,9 +8,14 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html, body, #root {
+    min-height: 100%;
+    min-width: 100%;
+  }
+
   body {
-    background: #F0F2F5 ;
-    -webkit-font-smoothing: antialiased
+    background: #F0F2F5;
+    -webkit-font-smoothing: antialiased;
   }
 
   body, input, button {

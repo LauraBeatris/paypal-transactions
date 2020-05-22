@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Balance from '../../components/Balance';
 
 import income from '../../assets/income.svg';
 import outcome from '../../assets/outcome.svg';
@@ -10,7 +11,13 @@ import Header from '../../components/Header';
 
 import formatValue from '../../utils/formatValue';
 
-import { Container, CardContainer, Card, TableContainer } from './styles';
+import {
+  Container,
+  CardContainer,
+  Card,
+  TableContainer,
+  Title,
+} from './styles';
 
 interface Transaction {
   id: string;
@@ -45,6 +52,14 @@ const Dashboard: React.FC = () => {
     <>
       <Header />
       <Container>
+        <Title>
+          Welcome
+{' '}
+          <span role="img" aria-label="Clap hand">
+            👋🏻
+          </span>
+        </Title>
+        <Balance balance={{ total: 32432 }} />
         <CardContainer>
           <Card>
             <header>

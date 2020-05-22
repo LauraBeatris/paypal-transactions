@@ -20,18 +20,10 @@ const Header: React.FC = () => (
           <li>
             <Link to="/import">Import</Link>
           </li>
-          <li>
-            <Link to="/activies">Activies</Link>
-          </li>
-          <li>
-            <Link to="/payments">Payments</Link>
-          </li>
-          <li>
-            <Link to="/wallet">Wallet</Link>
-          </li>
-          <li>
-            <Link to="/help">Help</Link>
-          </li>
+          <li className="not-allowed">Activies</li>
+          <li className="not-allowed">Payments</li>
+          <li className="not-allowed">Wallet</li>
+          <li className="not-allowed">Help</li>
         </ul>
       </nav>
     </header>

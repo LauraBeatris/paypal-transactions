@@ -40,13 +40,19 @@ export const Container = styled.div`
         `}
 
         li {
+          color: #555555;
+
           & + li {
             margin-left: var(--list-space);
           }
 
           a {
             text-decoration: none;
-            color: #555555;
+            color: inherit;
+          }
+
+          &.not-allowed {
+            cursor: not-allowed;
           }
         }
       }

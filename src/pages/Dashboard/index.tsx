@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { FiUpload } from 'react-icons/fi';
 import { formatRelative } from 'date-fns';
 
-import income from '../../assets/income.svg';
-import outcome from '../../assets/outcome.svg';
-import total from '../../assets/total.svg';
+import income from '../../assets/icons/income.svg';
+import outcome from '../../assets/icons/outcome.svg';
 
 import Header from '../../components/Header';
 import Balance from '../../components/Balance';

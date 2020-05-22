@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
 export const Container = styled.div`
   width: 100%;
@@ -9,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-weight: 500;
+  font-weight: bold;
   font-size: 36px;
   line-height: 54px;
   color: #363f5f;
@@ -36,21 +35,15 @@ export const Footer = styled.section`
     line-height: 18px;
     color: #969cb3;
 
-    img {
+    svg {
       margin-right: 5px;
+      font-size: 1.5em;
+      color: #e83f5b;
     }
   }
 
   button {
-    background: #ff872c;
-    color: #fff;
     border-radius: 5px;
     padding: 15px 80px;
-    border: 0;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background: ${shade(0.2, '#ff872c')};
-    }
   }
 `;

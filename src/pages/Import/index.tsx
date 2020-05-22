@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { RiAlertLine } from 'react-icons/ri';
 import { useHistory } from 'react-router-dom';
 
 import filesize from 'filesize';
@@ -6,6 +7,7 @@ import filesize from 'filesize';
 import Header from '../../components/Header';
 import FileList from '../../components/FileList';
 import Upload from '../../components/Upload';
+import Button from '../../styles/components/buttons';
 
 import { Container, Title, ImportFileContainer, Footer } from './styles';
 
@@ -42,19 +44,19 @@ const Import: React.FC = () => {
     <>
       <Header />
       <Container>
-        <Title>Importar uma transação</Title>
+        <Title>Import a Transaction</Title>
         <ImportFileContainer>
           <Upload onUpload={submitFile} />
           {!!uploadedFiles.length && <FileList files={uploadedFiles} />}
 
           <Footer>
             <p>
-              <img src={alert} alt="Alert" />
-              Permitido apenas arquivos CSV
+              <RiAlertLine />
+              Only CSV files are allowed
             </p>
-            <button onClick={handleUpload} type="button">
-              Enviar
-            </button>
+            <Button onClick={handleUpload} type="button" theme="button">
+              Send
+            </Button>
           </Footer>
         </ImportFileContainer>
       </Container>

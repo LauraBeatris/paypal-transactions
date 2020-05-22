@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 
-import Logo from '../../assets/logo.svg';
+import Logo from '../../assets/icons/logo.svg';
 
 const Header: React.FC = () => (
   <Container>
     <header>
-      <img src={Logo} alt="GoFinances" />
+      <Link to="/">
+        <img src={Logo} alt="GoFinances" />
+      </Link>
       <nav>
         <ul>
           <li>

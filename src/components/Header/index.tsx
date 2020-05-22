@@ -16,6 +16,9 @@ const Header: React.FC = () => (
             <Link to="/summary">Summary</Link>
           </li>
           <li>
+            <Link to="/import">Import</Link>
+          </li>
+          <li>
             <Link to="/activies">Activies</Link>
           </li>
           <li>
@@ -23,9 +26,6 @@ const Header: React.FC = () => (
           </li>
           <li>
             <Link to="/wallet">Wallet</Link>
-          </li>
-          <li>
-            <Link to="/offers">Offers</Link>
           </li>
           <li>
             <Link to="/help">Help</Link>

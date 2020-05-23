@@ -32,7 +32,7 @@
 # :rocket: Features
 
 * 🌴 Keep you up to date with your transactions by listing them.
-*  ␡ Delete transactions.
+*  ␡ Delete transactions that you may not care about anymore.
 *  📂 Import transactions from CSV files
 
 # :construction_worker: Installation

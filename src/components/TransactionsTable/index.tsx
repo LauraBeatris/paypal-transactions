@@ -7,9 +7,16 @@ import { TransactionsTableProps as Props } from '../../types/transactions';
 
 const TransactionsTable: React.FC<Props> = ({ transactions }) => {
   const [modalIsOpen, setModalOpen] = useState(false);
+  const [selectedTransactionId, setSelectedTransactionId] = useState<
+    string | null
+  >(null);
+  const closeModal = (): void => {
+    setModalOpen(false);
+  };
 
-  const handleModal = (isOpen: boolean) => (): void => {
-    setModalOpen(isOpen);
+  const openModal = (transactionId: string) => () => {
+    setSelectedTransactionId(transactionId);
+    setModalOpen(true);
   };
 
   return (
@@ -26,7 +33,7 @@ const TransactionsTable: React.FC<Props> = ({ transactions }) => {
               <TransactionRow
                 key={transaction.id}
                 transaction={transaction}
-                onClick={handleModal(true)}
+                onClick={openModal(transaction.id)}
               />
             ))}
           </tbody>
@@ -34,7 +41,8 @@ const TransactionsTable: React.FC<Props> = ({ transactions }) => {
       </TableContainer>
       <DeleteTransactionModal
         modalIsOpen={modalIsOpen}
-        closeModal={handleModal(false)}
+        closeModal={closeModal}
+        selectedTransactionId={selectedTransactionId}
       />
     </>
   );

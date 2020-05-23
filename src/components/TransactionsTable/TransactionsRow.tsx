@@ -8,7 +8,7 @@ const TransactionRow: React.FC<Props> = ({ transaction }) => {
     <TableRow>
       <td>
         <strong className="title">{transaction.title}</strong>
-        <span>{transaction.category.name}</span>
+        <span>{transaction.category.title}</span>
       </td>
       <td>
         <strong className={transaction.type}>

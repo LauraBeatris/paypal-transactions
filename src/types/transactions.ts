@@ -1,6 +1,6 @@
 export interface Category {
   id: number;
-  name: string;
+  title: string;
 }
 
 export type TransactionType = 'income' | 'outcome';

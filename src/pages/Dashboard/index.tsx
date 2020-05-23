@@ -31,7 +31,7 @@ const Dashboard: React.FC = () => {
   >('/transactions', api);
 
   if (error) {
-    return <div> error </div>;
+    return <div>Ops... It seems that something went wrong</div>;
   }
 
   if (!responseData) {

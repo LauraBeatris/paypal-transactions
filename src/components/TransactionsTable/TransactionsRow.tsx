@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import { TableRow } from './styles';
 import { TransactionRowProps as Props } from '../../types/transactions';
 
 const TransactionRow: React.FC<Props> = ({ transaction }) => {
+  const transactionValue = useMemo(() => {
+    let value = transaction.formattedValue;
+
+    if (transaction.type === 'outcome') {
+      value = `- ${value}`;
+    }
+
+    return value;
+  }, [transaction.type, transaction.formattedValue]);
+
   return (
     <TableRow>
       <td>
@@ -11,9 +21,7 @@ const TransactionRow: React.FC<Props> = ({ transaction }) => {
         <span>{transaction.category.title}</span>
       </td>
       <td>
-        <strong className={transaction.type}>
-          {transaction.formattedValue}
-        </strong>
+        <strong className={transaction.type}>{transactionValue}</strong>
         <span>{transaction.formattedDate}</span>
       </td>
     </TableRow>

@@ -10,6 +10,7 @@ import outcome from '../../assets/icons/outcome.svg';
 import Header from '../../components/Header';
 import BalanceTotal from '../../components/TotalBalance';
 import TransactionsTable from '../../components/TransactionsTable';
+import Loading from '../../components/Loading';
 
 import formatTransactions from '../../helpers/formatTransactions';
 import formatBalance from '../../helpers/formatBalance';
@@ -34,7 +35,7 @@ const Dashboard: React.FC = () => {
   }
 
   if (!responseData) {
-    return <div> loading </div>;
+    return <Loading />;
   }
 
   const formattedTransactions = formatTransactions(

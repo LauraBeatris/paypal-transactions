@@ -17,6 +17,7 @@
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.0",
     "styled-media-query": "^2.1.2",
+    "swr": "^0.2.2",
     "typescript": "~3.7.2",
     "victory": "^34.3.6"
   },

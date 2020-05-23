@@ -64,7 +64,7 @@ const Dashboard: React.FC = () => {
         <Title>
           Welcome
 {' '}
-          <span role="img" aria-label="Clap hand">
+          <span className="emoji" role="img" aria-label="Clap hand">
             👋🏻
           </span>
         </Title>
@@ -72,7 +72,7 @@ const Dashboard: React.FC = () => {
         <Link to="/import" data-testid="import-dashboard-link">
           <Button theme="dark">
             <FiUpload color="#fff" />
-            Import CSV with Transactions Data
+            Import
           </Button>
         </Link>
         <CardContainer>

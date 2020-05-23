@@ -1,9 +1,23 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import media from 'styled-media-query';
 
 interface CardProps {
   total?: boolean;
 }
+
+const shakeEmoji = keyframes`
+  0 {
+    transform: rotate(35deg)
+  }
+
+  50% {
+    transform: rotate(20deg)
+  }
+
+  100% {
+    transform: rotate(0deg)
+  }
+`;
 
 export const Container = styled.div`
   width: 100%;
@@ -16,10 +30,21 @@ export const Title = styled.h1`
   font-size: 32px;
   color: #3a3a3a;
   margin-bottom: 20px;
+  display: flex;
 
   ${media.lessThan('medium')`
     text-align: center;
   `}
+
+  .emoji {
+    margin-left: 10px;
+    display: inline-block;
+    animation-name: ${shakeEmoji};
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: 3;
+    animation-fill-mode: backwards;
+  }
 `;
 
 export const CardContainer = styled.section`

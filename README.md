@@ -41,7 +41,7 @@
 
 ```git clone https://github.com/LauraBeatris/paypal-clone.git```
 
-SSH URLs provide access to a Git repository via SSH, a secure protocol. If you use a SSH key registered in your Github account, clone the project using this command:
+SSH URLs provide access to a Git repository via SSH, a secure protocol. If you have a SSH key registered in your Github account, clone the project using this command:
 
 ```git clone git@github.com:LauraBeatris/paypal-clone.git```
 
@@ -59,7 +59,7 @@ After copying the examples, make sure to fill the variables with new values.
 
 The interface needs to interact with the server to get the list of transactions and execute mutations.
 
-Make sure to go the [GoFinances Rest API](https://github.com/LauraBeatris/gofinances-api) repository and follow the instructions in order to get it running in your machine.
+Make sure to go to the [GoFinances Rest API](https://github.com/LauraBeatris/gofinances-api) repository and follow the instructions in order to get it running in your machine.
 
 # :runner: Getting Started
 

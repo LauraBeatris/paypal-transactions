@@ -12,6 +12,8 @@ export interface Transaction {
   value: number;
   category: Category;
   created_at: string;
+  formattedDate?: string;
+  formattedValue?: string;
 }
 
 export interface TransactionsTableProps {

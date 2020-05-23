@@ -1,61 +1,47 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import useSWR from 'swr';
 import { Link } from 'react-router-dom';
 import { FiUpload } from 'react-icons/fi';
-import { formatRelative } from 'date-fns';
+import { AxiosResponse } from 'axios';
 
 import income from '../../assets/icons/income.svg';
 import outcome from '../../assets/icons/outcome.svg';
 
 import Header from '../../components/Header';
-import Balance from '../../components/Balance';
-import Button from '../../styles/components/buttons';
+import BalanceTotal from '../../components/TotalBalance';
 import TransactionsTable from '../../components/TransactionsTable';
 
-import formatValue from '../../utils/formatValue';
+import formatTransactions from '../../helpers/formatTransactions';
+import formatBalance from '../../helpers/formatBalance';
 import api from '../../services/api';
+import { Transaction, Balance } from '../../types/transactions';
 
+import Button from '../../styles/components/buttons';
 import { Container, CardContainer, Card, Title } from './styles';
 
-interface Transaction {
-  id: string;
-  title: string;
-  value: number;
-  formattedValue: string;
-  formattedDate: string;
-  type: 'income' | 'outcome';
-  category: { title: string };
-  created_at: Date;
-}
-
-interface Balance {
-  income: string;
-  outcome: string;
-  total: string;
+interface TransactionsResponse {
+  transactions: Transaction[];
+  balance: Balance;
 }
 
 const Dashboard: React.FC = () => {
-  // const [transactions, setTransactions] = useState<Transaction[]>([]);
-  // const [balance, setBalance] = useState<Balance>({} as Balance);
+  const { data: responseData, error } = useSWR<
+    AxiosResponse<TransactionsResponse>
+  >('/transactions', api);
 
-  useEffect(() => {
-    async function loadTransactions(): Promise<void> {
-      // TODO
-    }
+  if (error) {
+    return <div> error </div>;
+  }
 
-    loadTransactions();
-  }, []);
+  if (!responseData) {
+    return <div> loading </div>;
+  }
 
-  const transactions = [
-    {
-      id: '1',
-      title: 'Spotify',
-      type: 'Entertainment',
-      income: 900,
-      outcome: 234,
-      category: 'Entertainment',
-      created_at: formatRelative(new Date(), new Date()),
-    },
-  ];
+  const formattedTransactions = formatTransactions(
+    responseData?.data.transactions,
+  );
+
+  const formattedExpense = formatBalance(responseData?.data.balance);
 
   return (
     <>
@@ -68,11 +54,11 @@ const Dashboard: React.FC = () => {
             👋🏻
           </span>
         </Title>
-        <Balance balance={{ total: 32432 }} />
+        <BalanceTotal totalBalance={formattedExpense.formattedTotal} />
         <Link to="/import">
           <Button theme="dark">
             <FiUpload color="#fff" />
-            Import
+            Importar
           </Button>
         </Link>
         <CardContainer>
@@ -81,18 +67,23 @@ const Dashboard: React.FC = () => {
               <p>Incomes</p>
               <img src={income} alt="Income" />
             </header>
-            <h1 data-testid="balance-income">R$ 5.000,00</h1>
+            <h1 data-testid="balance-income">
+              {formattedExpense.formattedIncome}
+            </h1>
           </Card>
           <Card>
             <header>
               <p>Outcomes</p>
               <img src={outcome} alt="Outcome" />
             </header>
-            <h1 data-testid="balance-outcome">R$ 1.000,00</h1>
+            <h1 data-testid="balance-outcome">
+              {formattedExpense.formattedOutcome}
+            </h1>
           </Card>
         </CardContainer>
-
-        <TransactionsTable transactions={transactions} />
+        {responseData && (
+          <TransactionsTable transactions={formattedTransactions} />
+        )}
       </Container>
     </>
   );

@@ -13,7 +13,7 @@ export const TableContainer = styled.section`
       font-weight: bold;
       padding: 20px 32px;
       text-align: left;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 24px;
 
       ${media.lessThan('medium')`
@@ -67,7 +67,12 @@ export const TableContainer = styled.section`
 export const TableRow = styled.tr`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+
+  & + tr {
+    padding: 10px 0px;
+  }
 
   td {
     border: 0;

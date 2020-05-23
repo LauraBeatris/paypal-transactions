@@ -2,7 +2,7 @@ import React from 'react';
 
 import TransactionRow from './TransactionsRow';
 import { TableContainer } from './styles';
-import { TransactionsTableProps as Props } from './types';
+import { TransactionsTableProps as Props } from '../../types/transactions';
 
 const TransactionsTable: React.FC<Props> = ({ transactions }) => {
   return (

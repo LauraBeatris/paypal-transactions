@@ -7,10 +7,10 @@
 > Store transactions and keep up to date with your balance
 
 [![Author](https://img.shields.io/badge/author-LauraBeatris-363f5f?style=flat-square)](https://github.com/LauraBeatris)
-[![Languages](https://img.shields.io/github/languages/count/LauraBeatris/paypal-clone?color=%23363f5f&style=flat-square)](#)
-[![Stars](https://img.shields.io/github/stars/LauraBeatris/paypal-clone?color=363f5f&style=flat-square)](https://github.com/LauraBeatris/paypal-clone/stargazers)
-[![Forks](https://img.shields.io/github/forks/LauraBeatris/paypal-clone?color=%23363f5f&style=flat-square)](https://github.com/LauraBeatris/paypal-clone/network/members)
-[![Contributors](https://img.shields.io/github/contributors/LauraBeatris/paypal-clone?color=363f5f&style=flat-square)](https://github.com/LauraBeatris/paypal-clone/graphs/contributors)
+[![Languages](https://img.shields.io/github/languages/count/LauraBeatris/paypal-transactions?color=%23363f5f&style=flat-square)](#)
+[![Stars](https://img.shields.io/github/stars/LauraBeatris/paypal-transactions?color=363f5f&style=flat-square)](https://github.com/LauraBeatris/paypal-transactions/stargazers)
+[![Forks](https://img.shields.io/github/forks/LauraBeatris/paypal-transactions?color=%23363f5f&style=flat-square)](https://github.com/LauraBeatris/paypal-transactions/network/members)
+[![Contributors](https://img.shields.io/github/contributors/LauraBeatris/paypal-transactions?color=363f5f&style=flat-square)](https://github.com/LauraBeatris/paypal-transactions/graphs/contributors)
 
 <br />
 <p align="center"><img src=".github/home.gif?raw=true"/></p>
@@ -39,11 +39,11 @@
 
 **You need to install [Node.js](https://nodejs.org/en/download/) and [Yarn](https://yarnpkg.com/) first, then in order to clone the project via HTTPS, run this command:**
 
-```git clone https://github.com/LauraBeatris/paypal-clone.git```
+```git clone https://github.com/LauraBeatris/paypal-transactions.git```
 
 SSH URLs provide access to a Git repository via SSH, a secure protocol. If you have a SSH key registered in your Github account, clone the project using this command:
 
-```git clone git@github.com:LauraBeatris/paypal-clone.git```
+```git clone git@github.com:LauraBeatris/paypal-transactions.git```
 
 **Install dependencies**
 
@@ -78,15 +78,15 @@ I'm also using [SWR](https://swr.now.sh/) in order to easily cache and mutate th
 
 # :bug: Issues
 
-Feel free to **file a new issue** with a respective title and description on the the [Paypal Clone](https://github.com/LauraBeatris/paypal-clone/issues) repository. If you already found a solution to your problem, **i would love to review your pull request**! Have a look at our [contribution guidelines](https://github.com/LauraBeatris/paypal-clone/blob/master/CONTRIBUTING.md) to find out about the coding standards.
+Feel free to **file a new issue** with a respective title and description on the the [Paypal Transactions](https://github.com/LauraBeatris/paypal-transactions/issues) repository. If you already found a solution to your problem, **i would love to review your pull request**! Have a look at our [contribution guidelines](https://github.com/LauraBeatris/paypal-clone/blob/master/CONTRIBUTING.md) to find out about the coding standards.
 
 # :tada: Contributing
 
-Check out the [contributing](https://github.com/LauraBeatris/paypal-clone/blob/master/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing.
+Check out the [contributing](https://github.com/LauraBeatris/paypal-transactions/blob/master/CONTRIBUTING.md) page to see the best places to file issues, start discussions and begin contributing.
 
 # :closed_book: License
 
 Released in 2020.
-This project is under the [MIT license](https://github.com/LauraBeatris/paypal-clone/master/LICENSE).
+This project is under the [MIT license](https://github.com/LauraBeatris/paypal-transactions/master/LICENSE).
 
 Made with love by [Laura Beatris](https://github.com/LauraBeatris) 💜🚀

@@ -2,7 +2,7 @@
    <img src=".github/logo.svg" width="200"/>
 </p>
 
-# Paypal Clone
+# Paypal Transactions
 
 > Store transactions and keep up to date with your balance
 

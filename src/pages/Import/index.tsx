@@ -68,8 +68,13 @@ const Import: React.FC = () => {
               <RiAlertLine />
               Only CSV files are allowed
             </p>
-            <Button onClick={handleUpload} type="button" theme="button">
-              Importar
+            <Button
+              data-testid="send-file-button"
+              onClick={handleUpload}
+              type="button"
+              theme="button"
+            >
+              Import
             </Button>
           </Footer>
         </ImportFileContainer>

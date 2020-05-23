@@ -69,10 +69,10 @@ const Dashboard: React.FC = () => {
           </span>
         </Title>
         <BalanceTotal totalBalance={formattedExpense.formattedTotal} />
-        <Link to="/import">
+        <Link to="/import" data-testid="import-dashboard-link">
           <Button theme="dark">
             <FiUpload color="#fff" />
-            Importar
+            Import CSV with Transactions Data
           </Button>
         </Link>
         <CardContainer>

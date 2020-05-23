@@ -22,6 +22,7 @@ export interface TransactionsTableProps {
 
 export interface TransactionRowProps {
   transaction: Omit<Transaction, 'id'>;
+  onClick: () => void;
 }
 
 export interface Balance {

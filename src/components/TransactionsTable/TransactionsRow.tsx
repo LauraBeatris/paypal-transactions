@@ -3,7 +3,7 @@ import React, { useMemo } from 'react';
 import { TableRow } from './styles';
 import { TransactionRowProps as Props } from '../../types/transactions';
 
-const TransactionRow: React.FC<Props> = ({ transaction }) => {
+const TransactionRow: React.FC<Props> = ({ transaction, onClick }) => {
   const transactionValue = useMemo(() => {
     let value = transaction.formattedValue;
 
@@ -15,7 +15,7 @@ const TransactionRow: React.FC<Props> = ({ transaction }) => {
   }, [transaction.type, transaction.formattedValue]);
 
   return (
-    <TableRow>
+    <TableRow onClick={onClick}>
       <td>
         <strong className="title">{transaction.title}</strong>
         <span>{transaction.category.title}</span>

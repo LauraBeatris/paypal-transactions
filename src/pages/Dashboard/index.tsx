@@ -1,7 +1,7 @@
 import React from 'react';
 import useSWR from 'swr';
 import useDidMount from '@rooks/use-did-mount';
-import { useLocation, Link, RouteComponentProps } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 
 import { FiUpload } from 'react-icons/fi';

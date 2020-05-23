@@ -1,25 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import DeleteTransactionModal from '../DeleteTransactionModal';
 import TransactionRow from './TransactionsRow';
 import { TableContainer } from './styles';
 import { TransactionsTableProps as Props } from '../../types/transactions';
 
 const TransactionsTable: React.FC<Props> = ({ transactions }) => {
-  return (
-    <TableContainer>
-      <header>
-        <p>Recent activity</p>
+  const [modalIsOpen, setModalOpen] = useState(false);
 
-        <p>All activity</p>
-      </header>
-      <table>
-        <tbody>
-          {transactions.map(transaction => (
-            <TransactionRow key={transaction.id} transaction={transaction} />
-          ))}
-        </tbody>
-      </table>
-    </TableContainer>
+  const handleModal = (isOpen: boolean) => (): void => {
+    setModalOpen(isOpen);
+  };
+
+  return (
+    <>
+      <TableContainer>
+        <header>
+          <p>Recent activity</p>
+
+          <p>All activity</p>
+        </header>
+        <table>
+          <tbody>
+            {transactions.map(transaction => (
+              <TransactionRow
+                key={transaction.id}
+                transaction={transaction}
+                onClick={handleModal(true)}
+              />
+            ))}
+          </tbody>
+        </table>
+      </TableContainer>
+      <DeleteTransactionModal
+        modalIsOpen={modalIsOpen}
+        closeModal={handleModal(false)}
+      />
+    </>
   );
 };
 

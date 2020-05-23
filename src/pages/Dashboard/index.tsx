@@ -1,6 +1,9 @@
 import React from 'react';
 import useSWR from 'swr';
-import { Link } from 'react-router-dom';
+import useDidMount from '@rooks/use-did-mount';
+import { useLocation, Link, RouteComponentProps } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
+
 import { FiUpload } from 'react-icons/fi';
 import { AxiosResponse } from 'axios';
 
@@ -24,11 +27,21 @@ interface TransactionsResponse {
   transactions: Transaction[];
   balance: Balance;
 }
+interface LocationState {
+  newTransactions?: boolean;
+}
 
 const Dashboard: React.FC = () => {
   const { data: responseData, error } = useSWR<
     AxiosResponse<TransactionsResponse>
   >('/transactions', api);
+  const location = useLocation<LocationState>();
+
+  useDidMount(() => {
+    if (location.state?.newTransactions) {
+      scroll.scrollToBottom();
+    }
+  });
 
   if (error) {
     return <div>Ops... It seems that something went wrong</div>;

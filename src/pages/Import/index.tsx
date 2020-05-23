@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { RiAlertLine } from 'react-icons/ri';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import filesize from 'filesize';
 
@@ -11,7 +12,6 @@ import Button from '../../styles/components/buttons';
 
 import { Container, Title, ImportFileContainer, Footer } from './styles';
 
-import alert from '../../assets/alert.svg';
 import api from '../../services/api';
 
 interface FileProps {
@@ -25,19 +25,33 @@ const Import: React.FC = () => {
   const history = useHistory();
 
   async function handleUpload(): Promise<void> {
-    // const data = new FormData();
+    const data = new FormData();
 
-    // TODO
+    if (uploadedFiles.length > 0) {
+      data.append('file', uploadedFiles[0].file);
 
-    try {
-      // await api.post('/transactions/import', data);
-    } catch (err) {
-      // console.log(err.response.error);
+      try {
+        await api.post('/transactions/import', data);
+        history.push('/', {
+          newTransactions: true,
+        });
+        toast.success('Successfuly imported transactions');
+      } catch (err) {
+        toast.error(
+          'Ops.. something went wrong while importing your transactions. Please, try again.',
+        );
+      }
     }
   }
 
   function submitFile(files: File[]): void {
-    // TODO
+    const newUploadedFiles = files.map(file => ({
+      file,
+      name: file.name,
+      readableSize: filesize(file.size),
+    }));
+
+    setUploadedFiles([...uploadedFiles, ...newUploadedFiles]);
   }
 
   return (
@@ -45,7 +59,7 @@ const Import: React.FC = () => {
       <Header />
       <Container>
         <Title>Import a Transaction</Title>
-        <ImportFileContainer>
+        <ImportFileContainer onSubmit={handleUpload}>
           <Upload onUpload={submitFile} />
           {!!uploadedFiles.length && <FileList files={uploadedFiles} />}
 
@@ -55,7 +69,7 @@ const Import: React.FC = () => {
               Only CSV files are allowed
             </p>
             <Button onClick={handleUpload} type="button" theme="button">
-              Send
+              Importar
             </Button>
           </Footer>
         </ImportFileContainer>

@@ -5,7 +5,11 @@ export const Container = styled.div`
   width: 100%;
   max-width: 736px;
   margin: 0 auto;
-  padding: 0 20px 40px;
+  padding: 30px 40px;
+
+  ${media.lessThan('medium')`
+    padding: 0px 40px 20px;
+  `}
 `;
 
 export const Title = styled.h1`
